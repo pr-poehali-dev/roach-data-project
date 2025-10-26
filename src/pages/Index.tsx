@@ -122,15 +122,38 @@ const Index = () => {
       const y = (roach.y / 100) * canvas.height;
       
       ctx.fillStyle = roach.color;
+      ctx.save();
+      ctx.translate(x, y);
+      
       ctx.beginPath();
-      ctx.arc(x, y, 8, 0, Math.PI * 2);
+      ctx.ellipse(0, 0, 10, 6, 0, 0, Math.PI * 2);
       ctx.fill();
+      
+      ctx.fillStyle = roach.color;
+      ctx.globalAlpha = 0.8;
+      ctx.beginPath();
+      ctx.ellipse(-8, 0, 4, 2, -Math.PI / 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.ellipse(8, 0, 4, 2, Math.PI / 6, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.globalAlpha = 1;
+      
+      ctx.fillStyle = '#000';
+      ctx.beginPath();
+      ctx.arc(-3, -1, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.beginPath();
+      ctx.arc(3, -1, 1.5, 0, Math.PI * 2);
+      ctx.fill();
+      
+      ctx.restore();
       
       if (selectedRoach === roach.id) {
         ctx.strokeStyle = '#06B6D4';
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.arc(x, y, 12, 0, Math.PI * 2);
+        ctx.arc(x, y, 16, 0, Math.PI * 2);
         ctx.stroke();
       }
     });
