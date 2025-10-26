@@ -96,24 +96,55 @@ const Index = () => {
     ctx.fillStyle = '#1E293B';
     ctx.fillRect(0, 0, canvas.width, canvas.height);
 
-    ctx.strokeStyle = '#334155';
-    ctx.lineWidth = 1;
-    for (let i = 0; i <= 10; i++) {
-      const pos = (i / 10) * canvas.width;
-      ctx.beginPath();
-      ctx.moveTo(pos, 0);
-      ctx.lineTo(pos, canvas.height);
-      ctx.stroke();
-      ctx.beginPath();
-      ctx.moveTo(0, pos);
-      ctx.lineTo(canvas.width, pos);
-      ctx.stroke();
-    }
+    ctx.strokeStyle = '#475569';
+    ctx.lineWidth = 3;
+    
+    const w = canvas.width;
+    const h = canvas.height;
+    
+    ctx.strokeRect(w * 0.05, h * 0.05, w * 0.9, h * 0.9);
+    
+    ctx.beginPath();
+    ctx.moveTo(w * 0.3, h * 0.05);
+    ctx.lineTo(w * 0.3, h * 0.4);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(w * 0.5, h * 0.25);
+    ctx.lineTo(w * 0.5, h * 0.7);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(w * 0.7, h * 0.5);
+    ctx.lineTo(w * 0.7, h * 0.95);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(w * 0.05, h * 0.6);
+    ctx.lineTo(w * 0.4, h * 0.6);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(w * 0.6, h * 0.35);
+    ctx.lineTo(w * 0.95, h * 0.35);
+    ctx.stroke();
+    
+    ctx.beginPath();
+    ctx.moveTo(w * 0.15, h * 0.8);
+    ctx.lineTo(w * 0.55, h * 0.8);
+    ctx.stroke();
 
     ctx.fillStyle = '#FCD34D';
     ctx.globalAlpha = lightIntensity[0] / 100;
     ctx.beginPath();
-    ctx.arc(canvas.width * 0.95, canvas.height * 0.05, 30, 0, Math.PI * 2);
+    ctx.arc(canvas.width * 0.9, canvas.height * 0.1, 30, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.globalAlpha = 1;
+    
+    ctx.fillStyle = '#10B981';
+    ctx.globalAlpha = 0.6;
+    ctx.beginPath();
+    ctx.arc(canvas.width * 0.9, canvas.height * 0.1, 20, 0, Math.PI * 2);
     ctx.fill();
     ctx.globalAlpha = 1;
 
